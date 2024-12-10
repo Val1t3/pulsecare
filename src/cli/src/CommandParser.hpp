@@ -1,7 +1,7 @@
 #ifndef COMMANDPARSER_HPP
 #define COMMANDPARSER_HPP
 
-namespace Cli {
+namespace cli {
     class CommandParser {
     public:
         CommandParser();

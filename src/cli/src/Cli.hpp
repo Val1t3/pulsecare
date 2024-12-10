@@ -6,7 +6,7 @@
 #include <iostream>
 #include <memory>
 
-namespace Cli {
+namespace cli {
   class Cli {
     public:
         Cli(std::unique_ptr<CommandParser> commandParser);

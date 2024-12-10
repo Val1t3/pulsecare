@@ -10,6 +10,7 @@ RUN apt update && apt install -y \
     valgrind \
     gdb \
     cmake \
+    android-tools-adb \
     && apt clean
 
 CMD ["tail", "-f", "/dev/null"]

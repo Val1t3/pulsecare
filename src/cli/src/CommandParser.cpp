@@ -1,9 +1,9 @@
 #include "CommandParser.hpp"
 
-Cli::CommandParser::CommandParser()
+cli::CommandParser::CommandParser()
 {
 }
 
-Cli::CommandParser::~CommandParser()
+cli::CommandParser::~CommandParser()
 {
 }

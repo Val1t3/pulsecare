@@ -1,19 +1,19 @@
 #include "Cli.hpp"
 
-Cli::Cli::Cli(std::unique_ptr<CommandParser> commandParser)
+cli::Cli::Cli(std::unique_ptr<CommandParser> commandParser)
 {
     this->_commandParser = std::move(commandParser);
     this->_running = false;
 }
 
-Cli::Cli::~Cli()
+cli::Cli::~Cli()
 {
 }
 
 /**
  * Run the main loop of the CLI.
  */
-void Cli::Cli::run()
+void cli::Cli::run()
 {
     std::string input;
 
