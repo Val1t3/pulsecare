@@ -2,11 +2,11 @@
 #define COMMANDPARSER_HPP
 
 namespace Cli {
-  class CommandParser {
+    class CommandParser {
     public:
-      CommandParser();
-      ~CommandParser();
-  };
+        CommandParser();
+        ~CommandParser();
+    };
 } // namespace Cli
 
 #endif // COMMANDPARSER_HPP

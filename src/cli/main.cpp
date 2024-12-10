@@ -3,10 +3,10 @@
 #include "src/Cli.hpp"
 
 int main() {
-  std::cout << "Hello World!" << std::endl;
+	std::cout << "Hello World!" << std::endl;
 
-  Cli::Cli cli(std::make_unique<Cli::CommandParser>());
-  cli.run();
+	Cli::Cli cli(std::make_unique<Cli::CommandParser>());
+	cli.run();
 
-  return 0;
+	return 0;
 }

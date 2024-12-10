@@ -3,22 +3,20 @@
 
 #include "CommandParser.hpp"
 
-// #include <memory>
 #include <iostream>
 
 namespace Cli {
   class Cli {
     public:
-      Cli(std::unique_ptr<CommandParser> commandParser);
-      ~Cli();
+        Cli(std::unique_ptr<CommandParser> commandParser);
+        ~Cli();
 
-      void run();
+        void run();
 
     private:
-      std::unique_ptr<CommandParser> commandParser;
+        std::unique_ptr<CommandParser> _commandParser;
+        bool _running;
   };
 }
 
 #endif // CLI_HPP
-
-
