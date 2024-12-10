@@ -4,6 +4,7 @@
 #include "CommandParser.hpp"
 
 #include <iostream>
+#include <memory>
 
 namespace Cli {
   class Cli {
