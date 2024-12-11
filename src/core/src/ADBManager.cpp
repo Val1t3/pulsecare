@@ -1,5 +1,7 @@
 #include "ADBManager.hpp"
 
+#include <iostream>
+
 core::ADBManager::ADBManager() {}
 
 core::ADBManager::~ADBManager() {}
@@ -11,7 +13,7 @@ std::string core::ADBManager::executeCommand(std::string command) {
 
   FILE* pipe = popen(full_command.c_str(), "r");
   if (!pipe)
-    return "error: Failed to execute command.\n";
+    return "error";
 
   while (fgets(buffer, sizeof buffer, pipe) != NULL)
     res += buffer;

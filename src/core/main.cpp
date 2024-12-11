@@ -1,17 +1,20 @@
-#include <iostream>
-
-#include "src/ADBManager.hpp"
 #include "src/Core.hpp"
 #include "src/DeviceManager.hpp"
+
+#include <iostream>
 
 int main() {
   core::DeviceManager deviceManager;
   core::Core coreObject(deviceManager);
 
-  coreObject.run();
+  auto devices = deviceManager.getDevices();
+  for (auto device : devices) {
+    std::cout << "Device: " << device << std::endl;
+  }
 
-  std::cout << "CORE" << std::endl;
+  deviceManager.setSelectedDevice("test");
 
-  std::cout << core::ADBManager::executeCommand("devices") << std::endl;
+  std::cout << "selected: " << deviceManager.getSelectedDevice() << std::endl;
+
   return 0;
 }

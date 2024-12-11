@@ -10,14 +10,16 @@ class DeviceManager {
   ~DeviceManager();
 
   std::vector<std::string> getDevices();
-  void setDevices(std::vector<std::string> devices);
+  void setDevices();
 
-  std::string getDevice();
-  void setDevice(std::string device);
+  std::string getSelectedDevice();
+  void setSelectedDevice(std::string device);
 
  private:
   std::vector<std::string> _devices;
   std::string _selectedDevice;
+
+  std::vector<std::string> formatDevicesCommand(std::string output);
 };
 }  // namespace core
 
