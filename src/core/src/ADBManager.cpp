@@ -1,11 +1,14 @@
 #include "ADBManager.hpp"
 
-#include <iostream>
-
 core::ADBManager::ADBManager() {}
 
 core::ADBManager::~ADBManager() {}
 
+/**
+ * Execute a command on the host machine
+ * @param command std::string - Command to execute
+ * @return std::string - Output of the command
+ */
 std::string core::ADBManager::executeCommand(std::string command) {
   std::string full_command = "adb " + command;
   std::string res;
@@ -22,6 +25,12 @@ std::string core::ADBManager::executeCommand(std::string command) {
   return res;
 }
 
+/**
+ * Execute a command on a device
+ * @param command std::string - Command to execute
+ * @param device std::string - Device ID
+ * @return std::string - Output of the command
+ */
 std::string core::ADBManager::executeCommandOnDevice(std::string command,
                                                      std::string device) {
   return executeCommand("-s " + device + " " + command);
