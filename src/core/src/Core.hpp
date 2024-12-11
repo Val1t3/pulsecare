@@ -7,17 +7,17 @@
 #include <vector>
 
 namespace core {
-    class Core {
-        public:
-            Core();
-            ~Core();
+class Core {
+ public:
+  Core();
+  ~Core();
 
-            std::vector<std::string> getDevices();
+  std::vector<std::string> getDevices();
 
-        protected:
-        private:
-        std::vector<std::string> _devices;
-    };
+ protected:
+ private:
+  std::vector<std::string> _devices;
 };
+};  // namespace core
 
 #endif /* !CORE_HPP_ */

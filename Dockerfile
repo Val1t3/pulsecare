@@ -11,6 +11,7 @@ RUN apt update && apt install -y \
     gdb \
     cmake \
     android-tools-adb \
+    clang-format \
     && apt clean
 
 CMD ["tail", "-f", "/dev/null"]
