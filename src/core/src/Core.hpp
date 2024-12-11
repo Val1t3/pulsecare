@@ -1,22 +1,18 @@
 #ifndef CORE_HPP_
 #define CORE_HPP_
 
-#include "ADBManager.hpp"
-
-#include <string>
-#include <vector>
+#include "DeviceManager.hpp"
 
 namespace core {
 class Core {
  public:
-  Core();
+  Core(DeviceManager deviceManager);
   ~Core();
 
-  std::vector<std::string> getDevices();
+  void run();
 
- protected:
  private:
-  std::vector<std::string> _devices;
+  DeviceManager _deviceManager;
 };
 };  // namespace core
 

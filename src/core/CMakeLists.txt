@@ -7,4 +7,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(pulsecare-core
         main.cpp
         src/ADBManager.cpp
+        src/DeviceManager.cpp
+        src/Core.cpp
 )

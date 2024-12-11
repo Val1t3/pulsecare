@@ -3,7 +3,6 @@
 
 #include "CommandParser.hpp"
 
-#include <iostream>
 #include <memory>
 
 namespace cli {

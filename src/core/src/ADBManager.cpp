@@ -11,7 +11,7 @@ std::string core::ADBManager::executeCommand(std::string command) {
 
   FILE* pipe = popen(full_command.c_str(), "r");
   if (!pipe)
-    throw std::runtime_error("error: Failed to execute command.");
+    return "error: Failed to execute command.\n";
 
   while (fgets(buffer, sizeof buffer, pipe) != NULL)
     res += buffer;
@@ -23,8 +23,4 @@ std::string core::ADBManager::executeCommand(std::string command) {
 std::string core::ADBManager::executeCommandOnDevice(std::string command,
                                                      std::string device) {
   return executeCommand("-s " + device + " " + command);
-}
-
-std::vector<std::string> core::ADBManager::listDevices() {
-  return {};
 }

@@ -1,11 +1,11 @@
 #include "Core.hpp"
 
-core::Core::Core() {
-  _devices = core::ADBManager::listDevices();
-}
+#include <iostream>
+
+core::Core::Core(DeviceManager deviceManager) : _deviceManager(deviceManager) {}
 
 core::Core::~Core() {}
 
-std::vector<std::string> core::Core::getDevices() {
-  return _devices;
+void core::Core::run() {
+  std::cout << "core test" << std::endl;
 }
