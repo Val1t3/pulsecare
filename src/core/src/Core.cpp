@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-core::Core::Core(DeviceManager deviceManager) : _deviceManager(deviceManager) {}
+core::Core::Core(DeviceManager& deviceManager)
+    : _deviceManager(deviceManager) {}
 
 core::Core::~Core() {}
 

@@ -6,13 +6,13 @@
 namespace core {
 class Core {
  public:
-  Core(DeviceManager deviceManager);
+  Core(DeviceManager& deviceManager);
   ~Core();
 
   void run();
 
  private:
-  DeviceManager _deviceManager;
+  DeviceManager& _deviceManager;
 };
 };  // namespace core
 

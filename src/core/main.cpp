@@ -7,14 +7,12 @@ int main() {
   core::DeviceManager deviceManager;
   core::Core coreObject(deviceManager);
 
-  auto devices = deviceManager.getDevices();
-  for (auto device : devices) {
-    std::cout << "Device: " << device << std::endl;
+  for (core::device_t& device : deviceManager.getDevices()) {
+    std::cout << "ID: " << device.id << std::endl;
+    std::cout << "Product: " << device.product << std::endl;
+    std::cout << "Model: " << device.model << std::endl;
+    std::cout << "Device: " << device.device << std::endl;
   }
-
-  deviceManager.setSelectedDevice("test");
-
-  std::cout << "selected: " << deviceManager.getSelectedDevice() << std::endl;
 
   return 0;
 }
