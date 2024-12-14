@@ -32,7 +32,10 @@ void cli::CommandParser::addCommand(const std::string& command,
  * the arguments
  */
 std::pair<std::string, std::vector<std::string>> cli::CommandParser::parse(
-    const std::string& input) {
+    const std::string& input) const {
+  // DEBUG
+  std::cout << "Parsing input: " << input << std::endl;
+
   std::istringstream stream(input);
   std::string commandName;
   std::vector<std::string> args;
@@ -70,4 +73,14 @@ void cli::CommandParser::help() {
     std::cout << command.first << " - " << command.second.description
               << std::endl;
   }
+}
+
+/**
+ * @brief Get the commands of the parser
+ *
+ * @return const std::unordered_map<std::string, command_t>& The commands
+ */
+const std::unordered_map<std::string, cli::command_t>&
+cli::CommandParser::getCommands() const {
+  return _commands;
 }

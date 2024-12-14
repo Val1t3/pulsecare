@@ -11,6 +11,8 @@ class Cli {
   Cli(std::unique_ptr<CommandParser> commandParser);
   ~Cli();
 
+  CommandParser& getCommandParser() const;
+
   void run();
 
  private:
