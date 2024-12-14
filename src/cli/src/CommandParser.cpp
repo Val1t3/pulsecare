@@ -9,6 +9,16 @@ cli::CommandParser::CommandParser() {
 
 cli::CommandParser::~CommandParser() {}
 
+/**
+ * @brief Get the commands of the parser
+ *
+ * @return const std::unordered_map<std::string, command_t>& The commands
+ */
+const std::unordered_map<std::string, cli::command_t>&
+cli::CommandParser::getCommands() const {
+  return _commands;
+}
+
 // TODO: Add args to the callback
 /**
  * @brief Add a new command to the parser
@@ -33,15 +43,14 @@ void cli::CommandParser::addCommand(const std::string& command,
  */
 std::pair<std::string, std::vector<std::string>> cli::CommandParser::parse(
     const std::string& input) const {
-  // DEBUG
-  std::cout << "Parsing input: " << input << std::endl;
-
   std::istringstream stream(input);
   std::string commandName;
   std::vector<std::string> args;
 
+  // Parse command name
   stream >> commandName;
 
+  // Parse arguments
   std::string arg;
   while (stream >> arg)
     args.push_back(arg);
@@ -59,10 +68,11 @@ std::pair<std::string, std::vector<std::string>> cli::CommandParser::parse(
 void cli::CommandParser::execute(const std::string& commandName,
                                  std::vector<std::string>& args) {
   auto it = _commands.find(commandName);
+
   if (it != _commands.end())
     it->second.callback();
   else
-    std::cout << "Command not found" << std::endl;
+    std::cout << "error: Command not found" << std::endl;
 }
 
 /**
@@ -73,14 +83,4 @@ void cli::CommandParser::help() {
     std::cout << command.first << " - " << command.second.description
               << std::endl;
   }
-}
-
-/**
- * @brief Get the commands of the parser
- *
- * @return const std::unordered_map<std::string, command_t>& The commands
- */
-const std::unordered_map<std::string, cli::command_t>&
-cli::CommandParser::getCommands() const {
-  return _commands;
 }
