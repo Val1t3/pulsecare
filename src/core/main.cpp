@@ -14,5 +14,8 @@ int main() {
     std::cout << "Device: " << device.device << std::endl;
   }
 
+  deviceManager.setSelectedDevice("emulator-5554");
+  coreObject.battery();
+
   return 0;
 }

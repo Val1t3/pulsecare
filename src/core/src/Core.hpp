@@ -11,6 +11,12 @@ class Core {
 
   void run();
 
+  // --- EXTERNAL HARDWARE ---
+  //
+  // TODO: Define the function templates for the following functions
+  // Battery
+  void battery();
+
  private:
   DeviceManager& _deviceManager;
 };
