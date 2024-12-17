@@ -16,6 +16,10 @@ void core::Core::run() {
   std::cout << "core test" << std::endl;
 }
 
+core::DeviceManager& core::Core::getDeviceManager() {
+  return _deviceManager;
+}
+
 // --- EXTERNAL HARDWARE ---
 //
 // --- Battery ---

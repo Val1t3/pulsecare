@@ -2,16 +2,25 @@
 
 #include <iostream>
 
-cli::Cli::Cli(std::unique_ptr<CommandParser> commandParser) {
-  this->_commandParser = std::move(commandParser);
-  this->_running = false;
+cli::Cli::Cli(core::Core& core, std::unique_ptr<CommandParser> commandParser) : _core(core) {
+  _commandParser = std::move(commandParser);
+  _running = false;
 
   // --- INIT COMMANDS ---
+  // TODO: Add error handling in commands
   _commandParser->addCommand("help", "Print the help message", [this]() {
     this->_commandParser->help();
   });
   _commandParser->addCommand("exit", "Exit the CLI", [this]() {
-    this->_running = false;
+    _running = false;
+  });
+  _commandParser->addCommand("battery", "Battery info", [this]() {
+    // Error handling
+    if (_core.getDeviceManager().getSelectedDevice() == nullptr) {
+      std::cerr << "error: No device selected" << std::endl;
+      return;
+    }
+    _core.battery();
   });
 }
 

@@ -11,6 +11,8 @@ class Core {
 
   void run();
 
+  DeviceManager& getDeviceManager();
+
   // --- EXTERNAL HARDWARE ---
   //
   // TODO: Define the function templates for the following functions

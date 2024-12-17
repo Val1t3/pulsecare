@@ -9,3 +9,6 @@ add_executable(pulsecare-cli
         src/Cli.cpp
         src/CommandParser.cpp
 )
+
+add_subdirectory(../core core_build)
+target_link_libraries(pulsecare-cli pulsecare-core)

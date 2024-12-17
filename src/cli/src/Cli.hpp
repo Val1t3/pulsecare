@@ -9,7 +9,7 @@
 namespace cli {
 class Cli {
  public:
-  Cli(std::unique_ptr<CommandParser> commandParser);
+  Cli(core::Core& core, std::unique_ptr<CommandParser> commandParser);
   ~Cli();
 
   CommandParser& getCommandParser() const;
