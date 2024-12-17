@@ -5,6 +5,14 @@
 cli::Cli::Cli(std::unique_ptr<CommandParser> commandParser) {
   this->_commandParser = std::move(commandParser);
   this->_running = false;
+
+  // --- INIT COMMANDS ---
+  _commandParser->addCommand("help", "Print the help message", [this]() {
+    this->_commandParser->help();
+  });
+  _commandParser->addCommand("exit", "Exit the CLI", [this]() {
+    this->_running = false;
+  });
 }
 
 cli::Cli::~Cli() {}
@@ -32,9 +40,6 @@ void cli::Cli::run() {
 
     auto resPars = _commandParser->parse(input);
     _commandParser->execute(resPars.first, resPars.second);
-
-    if (input == "exit")
-      this->_running = false;
   }
   std::cout << "\033[31mExiting Pulsecare CLI\033[0m" << std::endl;
 }

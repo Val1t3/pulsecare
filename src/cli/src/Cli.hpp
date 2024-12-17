@@ -2,6 +2,7 @@
 #define CLI_HPP
 
 #include "CommandParser.hpp"
+#include "Core.hpp"
 
 #include <memory>
 
@@ -16,6 +17,7 @@ class Cli {
   void run();
 
  private:
+  core::Core& _core;
   std::unique_ptr<CommandParser> _commandParser;
   bool _running;
 };

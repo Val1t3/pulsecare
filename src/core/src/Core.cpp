@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <map>
-#include <string>
 #include <sstream>
+#include <string>
 
 core::Core::Core(DeviceManager& deviceManager)
     : _deviceManager(deviceManager) {}
@@ -18,7 +18,7 @@ void core::Core::run() {
 
 // --- EXTERNAL HARDWARE ---
 //
-// Battery
+// --- Battery ---
 void core::Core::battery() {
   // Call the ADBManager to get the battery information
   std::string output = ADBManager::executeCommandOnDevice(
