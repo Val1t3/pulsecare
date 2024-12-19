@@ -7,7 +7,6 @@ cli::Cli::Cli(core::Core& core, std::unique_ptr<CommandParser> commandParser) : 
   _running = false;
 
   // --- INIT COMMANDS ---
-  // TODO: Add error handling in commands
   _commandParser->addCommand("help", "Print the help message", [this]() {
     this->_commandParser->help();
   });
@@ -15,12 +14,7 @@ cli::Cli::Cli(core::Core& core, std::unique_ptr<CommandParser> commandParser) : 
     _running = false;
   });
   _commandParser->addCommand("battery", "Battery info", [this]() {
-    // Error handling
-    if (_core.getDeviceManager().getSelectedDevice() == nullptr) {
-      std::cerr << "error: No device selected" << std::endl;
-      return;
-    }
-    _core.battery();
+    batteryCommand();
   });
 }
 
@@ -51,4 +45,12 @@ void cli::Cli::run() {
     _commandParser->execute(resPars.first, resPars.second);
   }
   std::cout << "\033[31mExiting Pulsecare CLI\033[0m" << std::endl;
+}
+
+void cli::Cli::batteryCommand() {
+  if (_core.getDeviceManager().getSelectedDevice() == nullptr) {
+    std::cerr << "error: No device selected" << std::endl;
+    return;
+  }
+  _core.battery();
 }

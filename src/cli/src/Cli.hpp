@@ -20,6 +20,9 @@ class Cli {
   core::Core& _core;
   std::unique_ptr<CommandParser> _commandParser;
   bool _running;
+
+// --- COMMANDS ---
+  void batteryCommand();
 };
 }  // namespace cli
 
